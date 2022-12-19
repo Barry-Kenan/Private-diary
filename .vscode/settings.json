@@ -1,0 +1,12 @@
+{
+  "scss.validate": true,
+  "stylelint.validate": ["scss"],
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true
+  },
+
+  "cSpell.language": "en, ru"
+}
