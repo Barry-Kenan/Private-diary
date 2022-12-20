@@ -1,0 +1,21 @@
+<div class="form-container mat-elevation-z5">
+  <h1 class="text-center">Вход</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <mat-form-field>
+      <input matInput placeholder="Эл. адрес" formControlName="email" />
+      <mat-error *ngIf="email?.errors?.['required']">Эл. адрес обязателен</mat-error>
+      <mat-error *ngIf="email?.errors?.['email']">Введите правильный эл. адрес</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Пароль" formControlName="password" type="password" />
+      <mat-error *ngIf="password?.errors?.['required']"> Пароль обязателен </mat-error>
+    </mat-form-field>
+    <div class="center margin-top">
+      <button mat-raised-button color="primary" type="submit">Войти</button>
+    </div>
+    <span class="center margin-top"> Нет профиля? </span>
+    <span class="center margin-top">
+      <a class="sign-up-link center" routerLink="/signup">Зарегистрироваться!</a>
+    </span>
+  </form>
+</div>

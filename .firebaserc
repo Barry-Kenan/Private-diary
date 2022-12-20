@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "private-diary-47ee4": {
+      "hosting": {
+        "private-diary": [
+          "private-diary-47ee4"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "private-diary-47ee4"
+  }
+}

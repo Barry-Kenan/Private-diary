@@ -1,0 +1,27 @@
+<div class="form-container mat-elevation-z5">
+  <h1 class="text-center">Регистрация</h1>
+  <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+    <mat-form-field>
+      <input matInput placeholder="Имя" formControlName="name" />
+      <mat-error *ngIf="name?.errors?.['required']"> Заполните Имя</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Эл. почта" formControlName="email" />
+      <mat-error *ngIf="email?.errors?.['required']"> Заполните эл. почту </mat-error>
+      <mat-error *ngIf="email?.errors?.['email']"> Введите корректный адрес эл. почты </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Пароль" formControlName="password" />
+      <mat-error *ngIf="password?.errors?.['required']"> Введите пароль </mat-error>
+      <mat-error *ngIf="password?.errors?.['minlength']"> Пароль должен состоять минимум из 6 символов </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Подтвердите пароль" formControlName="confirmPassword" />
+      <mat-error *ngIf="confirmPassword?.errors?.['required']"> Введите пароль </mat-error>
+    </mat-form-field>
+    <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']"> Пароли должны совподать </mat-error>
+    <div class="center margin-top">
+      <button type="submit" mat-raised-button color="primary">Зарегистрироваться!</button>
+    </div>
+  </form>
+</div>
