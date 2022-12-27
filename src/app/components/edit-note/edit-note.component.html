@@ -1,0 +1,37 @@
+<div class="container mat-elevation-z5">
+  <form [formGroup]="editForm" (ngSubmit)="submit()">
+    <div class="center">
+      <img alt="avatar" class="edit-avatar" src="{{ initialData.url }}" />
+      <input
+        type="file"
+        id="file"
+        class="input-file margin-left"
+        formControlName="file"
+        accept="image/png, image/jpg, image/jpeg"
+        (change)="selectFile($event)" />
+    </div>
+    <div *ngIf="f.file.touched && f.file.invalid" class="center">
+      <mat-error *ngIf="f.file.errors.required">Выберите изображение</mat-error>
+    </div>
+    <div class="margin-top">
+      <quill-editor placeholder="Enter text" formControlName="text" id="text" [styles]="{ height: '300px' }">
+      </quill-editor>
+    </div>
+    <div class="margin-top">
+      <div class="center">
+        <h2>Загрузка изображения...{{ percentage }} %</h2>
+      </div>
+      <mat-progress-bar mode="determine" [value]="percentage"></mat-progress-bar>
+    </div>
+    <div class="center margin-top buttons">
+      <button mat-stroked-button color="primary" type="button" routerLink="/home">
+        <mat-icon>cancel_presentation</mat-icon>
+        Отмена
+      </button>
+      <button mat-raised-button class="margin-left" color="primary" type="submit">
+        <mat-icon>edit</mat-icon>
+        Изменить
+      </button>
+    </div>
+  </form>
+</div>
