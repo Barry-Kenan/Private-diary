@@ -1,0 +1,12 @@
+.content {
+  &-button {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 16px;
+  }
+
+  &-scrollable-body {
+    height: calc(100vh - 64px - 64px - 36px - 16px);
+    overflow-y: scroll;
+  }
+}

@@ -1,1 +1,14 @@
-<p>home works!</p>
+<div class="content">
+  <div class="content-button">
+    <button type="button" routerLink="/new" mat-flat-button color="primary">
+      Создать
+      <mat-icon>create</mat-icon>
+    </button>
+  </div>
+  <cdk-virtual-scroll-viewport #scroller class="content-scrollable-body" [itemSize]="213">
+    <app-card class="content-scrollable-body-cards" *cdkVirtualFor="let post of posts" [data]="post"></app-card>
+    <div class="center margint-top" *ngIf="loading">
+      <mat-progress-spinner [mode]="'indeterminate'" [diameter]="50"></mat-progress-spinner>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>
