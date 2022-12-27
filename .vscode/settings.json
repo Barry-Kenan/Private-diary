@@ -8,5 +8,6 @@
     "source.fixAll.stylelint": true
   },
 
-  "cSpell.language": "en, ru"
+  "cSpell.language": "en, ru",
+  "cSpell.words": ["Toastr"]
 }

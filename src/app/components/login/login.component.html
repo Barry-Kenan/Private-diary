@@ -3,12 +3,12 @@
   <form [formGroup]="loginForm" (ngSubmit)="submit()">
     <mat-form-field>
       <input matInput placeholder="Эл. адрес" formControlName="email" />
-      <mat-error *ngIf="email?.errors?.['required']">Эл. адрес обязателен</mat-error>
-      <mat-error *ngIf="email?.errors?.['email']">Введите правильный эл. адрес</mat-error>
+      <mat-error *ngIf="f.email?.errors?.['required']">Введите Эл. адрес</mat-error>
+      <mat-error *ngIf="f.email?.errors?.['email']">Введите правильный эл. адрес</mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Пароль" formControlName="password" type="password" />
-      <mat-error *ngIf="password?.errors?.['required']"> Пароль обязателен </mat-error>
+      <mat-error *ngIf="f.password?.errors?.['required']">Введите Пароль</mat-error>
     </mat-form-field>
     <div class="center margin-top">
       <button mat-raised-button color="primary" type="submit">Войти</button>
