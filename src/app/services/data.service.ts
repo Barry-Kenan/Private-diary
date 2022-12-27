@@ -12,6 +12,11 @@ import { Note } from '../models/note';
   providedIn: 'root',
 })
 export class DataService {
+  /**
+   * массив с названием изображений
+   */
+  public imagesName: Array<string>;
+
   constructor(private fireStore: AngularFirestore, private fireStorage: AngularFireStorage) {}
 
   /**
@@ -68,7 +73,18 @@ export class DataService {
    * @param note запись
    */
   public deleteNote(note: Note): void {
+    this.getAllNotes().subscribe(res => {
+      this.imagesName = res.map((e: any) => {
+        const data = e.payload.doc.data();
+
+        return data.name;
+      });
+    });
+
+    const imagesCount = this.imagesName.filter(e => e === note.name).length;
     this.fireStore.collection('/Notes').doc(note.id).delete();
-    this.fireStorage.ref(`/Notes/${note.name}`).delete();
+    if (imagesCount === 1) {
+      this.fireStorage.ref(`/Notes/${note.name}`).delete();
+    }
   }
 }
