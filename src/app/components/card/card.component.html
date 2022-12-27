@@ -1,0 +1,18 @@
+<div class="card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-subtitle>{{ data.createdDate | date : 'd.M.yy, H:mm ' }}</mat-card-subtitle>
+        <img alt="avatar" class="card-avatar" src="{{ data.url }}" />
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content class="margin-top">
+      <span [innerHTML]="data.text"></span>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions class="right">
+      <button type="button" mat-stroked-button color="primary" routerLink="/edit/{{ data.id }}">Изменить</button>
+      <button type="button" class="margin-left" mat-raised-button color="warn" (click)="delete(data)">Удалить</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

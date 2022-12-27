@@ -1,0 +1,17 @@
+.card {
+  margin-bottom: 16px;
+
+  & img {
+    transition: 1s; /* Время эффекта */
+  }
+
+  & img:hover {
+    transform: scale(1.2);
+  }
+
+  &-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+  }
+}
