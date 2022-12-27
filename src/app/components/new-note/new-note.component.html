@@ -1,0 +1,40 @@
+<div class="container mat-elevation-z5">
+  <form [formGroup]="noteForm" (ngSubmit)="submit()">
+    <button mat-mini-fab color="primary" routerLink="/home" type="button">
+      <mat-icon>home</mat-icon>
+    </button>
+    <div class="center margin-top">
+      <input
+        type="file"
+        id="file"
+        name="file"
+        class="input-file"
+        formControlName="file"
+        accept="image/png, image/jpg, image/jpeg"
+        (change)="selectFile($event)" />
+    </div>
+    <div *ngIf="f.file.touched && f.file.invalid" class="center">
+      <mat-error *ngIf="f.file.errors.required">Выберите изображение</mat-error>
+    </div>
+    <div class="margin-top">
+      <quill-editor placeholder="Enter text" formControlName="text" id="text" [styles]="{ height: '300px' }">
+      </quill-editor>
+    </div>
+    <div class="margin-top">
+      <div class="center">
+        <h2>Загрузка изображения...{{ percentage }} %</h2>
+      </div>
+      <mat-progress-bar mode="determine" [value]="percentage"></mat-progress-bar>
+    </div>
+    <div class="center margin-top buttons">
+      <button mat-stroked-button color="primary" type="button" (click)="reset()">
+        <mat-icon>clear</mat-icon>
+        Очистить
+      </button>
+      <button mat-raised-button class="margin-left" color="primary" type="submit" [disabled]="!noteForm.valid">
+        <mat-icon>add</mat-icon>
+        Добавить
+      </button>
+    </div>
+  </form>
+</div>
